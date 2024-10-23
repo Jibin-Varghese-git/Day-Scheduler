@@ -1,0 +1,42 @@
+function cal_time()
+{
+    for( let i=0;i<data.length;i++)
+    {
+        mins=parseInt(mins+data[i].start);
+        console.log("Mins :"+mins)
+        if(mins>=60)
+        {
+            hours++;
+            mins=mins % 60;
+            console.log("hours :"+ hours)
+            console.log("Mins 2 :"+mins)
+            if(hours==12){
+                hours=0;
+            }
+        }
+
+    }
+   
+   
+}
+
+
+
+function2
+
+function cal_time()
+{
+    for( let i=0;i<data.length;i++)
+    {
+        start=data[i].start;
+        task_duration=data[0].duration;
+        hours=start_hour+(Math.floor(start/60)); 
+        start=start % 60;
+        console.log(task_duration)
+       
+        document.getElementById("time-inner-div").style.height=task_duration + "px";
+        
+    }
+   
+   
+} 
