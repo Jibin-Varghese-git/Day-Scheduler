@@ -1,0 +1,30 @@
+
+   
+
+.time-child-div{
+    position:absolute;
+    background-color: #e2f5ff;
+    width: 90%;
+    margin-left:20px;
+    font-size: 12px;
+    padding-left: 20px;
+    padding-bottom: 5px;;
+    border-left: 2px solid blue;
+}
+.time-main-container{
+    position:relative;
+    background-color: #fffefe;
+    width: 100%;
+}
+.time-sub-container{
+    height:60px;
+}
+
+.time{
+    font-size:16px;
+    color: #8b8a8a;
+}
+.time-half{
+    font-size:12px;
+    color: #8b8a8a;
+}
