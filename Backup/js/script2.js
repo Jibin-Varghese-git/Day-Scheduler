@@ -32,14 +32,19 @@ var data = [{
     title: "Follow up with designer"
 }, {
     start: 400,
-    duration: 30,
+    duration: 20,
     title: "Push up branch"
 }, {
     start: 420,
     duration: 30,
     title: "Push up branch"
+}, {
+    start: 430,
+    duration: 20,
+    title: "Push up branch"
 }
 ];
+
 //INPUTS
 //sorting
 for(let i=0;i<data.length;i++)
@@ -52,6 +57,7 @@ for(let i=0;i<data.length;i++)
                 let temp=data[j];
                 data[j]=data[i];
                 data[i]=temp
+                console.log(temp);
             }
         }
     }
@@ -69,9 +75,9 @@ let overlapParent=[];
 let overlapChild=[];
 let num=[];
 let div=document.createElement("div");
-let flag=1;
+let flag=0;
 
-    for( let i=0;i<data.length-1;i++)
+for( let i=0;i<data.length-1;i++)
     {
         
        
@@ -87,28 +93,38 @@ let flag=1;
     }
 
     for( let i=0;i<data.length;i++)
-    {
+    {      
+        
+        if(overlapChild.includes(i)||overlapParent.includes(i))
+        {
+           if(i%2==0)
+           {
+             flag=1;
+           }
+           else{
+            flag=0;
+           }
             let div=document.createElement("div");
+            if(flag==1 )
+            {
+                div.style.width="45%";
+            }
+            else
+            {
+                div.style.width="45%";
+                div.style.left="52%";
+            }
+            duration=data[i].duration + "px";
+            start=data[i].start + "px";
 
-            if(overlapChild.includes(i) && overlapChild.includes(i-1))
-            {
-                div.style.left='52%';
-                div.style.width='45%';
-            }
-            else if(overlapChild.includes(i) && overlapParent.includes(i))
-            {
-                div.style.width='45%';
-            }
-            else if(overlapParent.includes(i) )
-            {
-                div.style.left='52%';
-                div.style.width='45%';
-            }
-            else if(overlapChild.includes(i) )
-            {
-                div.style.width='45%';
-            }
-            
+            div.style.height=duration ;
+            div.style.top=start ;
+            div.innerHTML=data[i].title + ' ' + data[i].start ;
+            div.classList.add("time-child-div")
+            document.getElementById("time-inner-div").appendChild(div); 
+        }
+        else{
+            let div=document.createElement("div");
             duration=data[i].duration + "px";
             start=data[i].start + "px";
 
@@ -117,8 +133,7 @@ let flag=1;
             div.innerHTML=data[i].title + ' ' + data[i].start ;
             div.classList.add("time-child-div")
             document.getElementById("time-inner-div").appendChild(div);
-
-            
+        }
     }
     
    
